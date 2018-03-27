@@ -14,6 +14,15 @@
 		5F0722BF2069CEB300582BC1 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5F0722BD2069CEB300582BC1 /* LaunchScreen.storyboard */; };
 		5F0722CA2069CEB300582BC1 /* mobile_coding_challengeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F0722C92069CEB300582BC1 /* mobile_coding_challengeTests.swift */; };
 		5F0722D52069CEB300582BC1 /* mobile_coding_challengeUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F0722D42069CEB300582BC1 /* mobile_coding_challengeUITests.swift */; };
+		5F0722E42069E26900582BC1 /* APIRouterProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F0722E32069E26900582BC1 /* APIRouterProtocol.swift */; };
+		5F0722E62069E2F800582BC1 /* APIServiceProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F0722E52069E2F800582BC1 /* APIServiceProtocol.swift */; };
+		5F0722E82069F18500582BC1 /* PhotoRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F0722E72069F18500582BC1 /* PhotoRouter.swift */; };
+		5F0722EA2069F19900582BC1 /* PhotoAPIService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F0722E92069F19900582BC1 /* PhotoAPIService.swift */; };
+		5F0722EF2069F3B800582BC1 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F0722EE2069F3B800582BC1 /* Constants.swift */; };
+		5F0722F12069F90000582BC1 /* Photo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F0722F02069F90000582BC1 /* Photo.swift */; };
+		5F0722F32069FA6C00582BC1 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F0722F22069FA6C00582BC1 /* User.swift */; };
+		5F0722F62069FEE100582BC1 /* DateFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F0722F52069FEE100582BC1 /* DateFormatter.swift */; };
+		5F0722FA206A15D100582BC1 /* PhotoDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F0722F9206A15D100582BC1 /* PhotoDetail.swift */; };
 		858D6BC6A1858473EF873ED8 /* Pods_mobile_coding_challengeUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D7C1965B3C106E87689211AE /* Pods_mobile_coding_challengeUITests.framework */; };
 		88AD44487759CDCCAD60A6D5 /* Pods_mobile_coding_challenge.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AE520D4700C09F7B529C8BD2 /* Pods_mobile_coding_challenge.framework */; };
 		A3C3213F8167B856B5EC44B3 /* Pods_mobile_coding_challengeTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 14B4AAE6F439E38D91E411B3 /* Pods_mobile_coding_challengeTests.framework */; };
@@ -53,6 +62,15 @@
 		5F0722D02069CEB300582BC1 /* mobile-coding-challengeUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "mobile-coding-challengeUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		5F0722D42069CEB300582BC1 /* mobile_coding_challengeUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = mobile_coding_challengeUITests.swift; sourceTree = "<group>"; };
 		5F0722D62069CEB300582BC1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		5F0722E32069E26900582BC1 /* APIRouterProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIRouterProtocol.swift; sourceTree = "<group>"; };
+		5F0722E52069E2F800582BC1 /* APIServiceProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIServiceProtocol.swift; sourceTree = "<group>"; };
+		5F0722E72069F18500582BC1 /* PhotoRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoRouter.swift; sourceTree = "<group>"; };
+		5F0722E92069F19900582BC1 /* PhotoAPIService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoAPIService.swift; sourceTree = "<group>"; };
+		5F0722EE2069F3B800582BC1 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		5F0722F02069F90000582BC1 /* Photo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Photo.swift; sourceTree = "<group>"; };
+		5F0722F22069FA6C00582BC1 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		5F0722F52069FEE100582BC1 /* DateFormatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateFormatter.swift; sourceTree = "<group>"; };
+		5F0722F9206A15D100582BC1 /* PhotoDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoDetail.swift; sourceTree = "<group>"; };
 		605F0893D005125819F3ADAB /* Pods-mobile-coding-challenge.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-mobile-coding-challenge.release.xcconfig"; path = "Pods/Target Support Files/Pods-mobile-coding-challenge/Pods-mobile-coding-challenge.release.xcconfig"; sourceTree = "<group>"; };
 		92F4879D04B5ED432F7D77AD /* Pods-mobile-coding-challengeTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-mobile-coding-challengeTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-mobile-coding-challengeTests/Pods-mobile-coding-challengeTests.release.xcconfig"; sourceTree = "<group>"; };
 		AE520D4700C09F7B529C8BD2 /* Pods_mobile_coding_challenge.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_mobile_coding_challenge.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -127,6 +145,11 @@
 		5F0722B32069CEB300582BC1 /* mobile-coding-challenge */ = {
 			isa = PBXGroup;
 			children = (
+				5F0722F42069FED100582BC1 /* Utility */,
+				5F0722ED2069F29700582BC1 /* APP */,
+				5F0722EC2069F1D900582BC1 /* Controller */,
+				5F0722EB2069F1D500582BC1 /* Model */,
+				5F0722E22069E17F00582BC1 /* NetworkManager */,
 				5F0722B42069CEB300582BC1 /* AppDelegate.swift */,
 				5F0722B62069CEB300582BC1 /* ViewController.swift */,
 				5F0722B82069CEB300582BC1 /* Main.storyboard */,
@@ -153,6 +176,50 @@
 				5F0722D62069CEB300582BC1 /* Info.plist */,
 			);
 			path = "mobile-coding-challengeUITests";
+			sourceTree = "<group>";
+		};
+		5F0722E22069E17F00582BC1 /* NetworkManager */ = {
+			isa = PBXGroup;
+			children = (
+				5F0722E32069E26900582BC1 /* APIRouterProtocol.swift */,
+				5F0722E52069E2F800582BC1 /* APIServiceProtocol.swift */,
+				5F0722E72069F18500582BC1 /* PhotoRouter.swift */,
+				5F0722E92069F19900582BC1 /* PhotoAPIService.swift */,
+			);
+			path = NetworkManager;
+			sourceTree = "<group>";
+		};
+		5F0722EB2069F1D500582BC1 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				5F0722F02069F90000582BC1 /* Photo.swift */,
+				5F0722F22069FA6C00582BC1 /* User.swift */,
+				5F0722F9206A15D100582BC1 /* PhotoDetail.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		5F0722EC2069F1D900582BC1 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		5F0722ED2069F29700582BC1 /* APP */ = {
+			isa = PBXGroup;
+			children = (
+				5F0722EE2069F3B800582BC1 /* Constants.swift */,
+			);
+			path = APP;
+			sourceTree = "<group>";
+		};
+		5F0722F42069FED100582BC1 /* Utility */ = {
+			isa = PBXGroup;
+			children = (
+				5F0722F52069FEE100582BC1 /* DateFormatter.swift */,
+			);
+			path = Utility;
 			sourceTree = "<group>";
 		};
 		D5B55C2CACA1E6A360442F0E /* Frameworks */ = {
@@ -462,7 +529,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5F0722F12069F90000582BC1 /* Photo.swift in Sources */,
 				5F0722B72069CEB300582BC1 /* ViewController.swift in Sources */,
+				5F0722E62069E2F800582BC1 /* APIServiceProtocol.swift in Sources */,
+				5F0722FA206A15D100582BC1 /* PhotoDetail.swift in Sources */,
+				5F0722E82069F18500582BC1 /* PhotoRouter.swift in Sources */,
+				5F0722F62069FEE100582BC1 /* DateFormatter.swift in Sources */,
+				5F0722EA2069F19900582BC1 /* PhotoAPIService.swift in Sources */,
+				5F0722F32069FA6C00582BC1 /* User.swift in Sources */,
+				5F0722EF2069F3B800582BC1 /* Constants.swift in Sources */,
+				5F0722E42069E26900582BC1 /* APIRouterProtocol.swift in Sources */,
 				5F0722B52069CEB300582BC1 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -12,13 +12,28 @@ class ViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
+        
+        PhotoAPIService.getPhotos(from: 1){ result in
+            switch result {
+            case .success(let photos):
+                print("_____________________________")
+                print(photos)
+            case .failure(let error):
+                print(error)
+            }
+        }
+        
+        PhotoAPIService.getPhoto(by: "8qrnOP1s6H4") { (result) in
+            switch result {
+            case .success(let photo):
+                print("_____________________________")
+                print(photo)
+            case .failure(let error):
+                print(error.localizedDescription)
+            }
+        }
     }
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
 
 
 }
