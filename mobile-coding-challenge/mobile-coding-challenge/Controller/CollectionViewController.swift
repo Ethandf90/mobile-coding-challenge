@@ -21,10 +21,10 @@ class CollectionViewController: UIViewController {
             collectionView.reloadData()
         }
     }
-    var photoDetailDic = [String: PhotoDetail]() // photoId: PhotoDetailModel
+    var photoDetailDic = [String: PhotoDetail]() // [photoId: PhotoDetailModel] to hold downloaded PhotoDetailModel
     
-    var currentPage = 1
-    var currentIndex = -1
+    var currentPage = 1  // current pagination, for
+    var currentIndex = -1  // current selected index
     
     var isLoading = false {
         didSet {
@@ -118,6 +118,8 @@ class CollectionViewController: UIViewController {
        
     }
     
+    // MARK: event
+    
     fileprivate func toggleSpinner(isloading: Bool) {
         if isloading {
             spinner.startAnimating()
@@ -137,23 +139,65 @@ class CollectionViewController: UIViewController {
     }
 
     fileprivate func showFullView(with index: Int) {
-        // here reuse the spinner, just to indicate
-        toggleSpinner(isloading: true)
+        
         let model = photoModelArray[index]
-        PhotoAPIService.getPhoto(by: model.id) { [unowned self] result in
-            switch result {
-            case .success(let photo):
-                self.fullView.updateContent(with: photo)
-                self.fullView.isHidden = false
-            case .failure(let error):
-                // todo
-                print(error.localizedDescription)
-            }
+        if let photo = photoDetailDic[model.id] {
+            // if data already downloaded, just use it
+            self.fullView.updateContent(with: photo)
+            self.fullView.isHidden = false
+        } else {
             
-            self.toggleSpinner(isloading: false)
+            // here to reuse the spinner logic, just to indicate
+            toggleSpinner(isloading: true)
+            PhotoAPIService.getPhoto(by: model.id) { [unowned self] result in
+                switch result {
+                case .success(let photo):
+                    
+                    self.photoDetailDic[model.id] = photo // save the downloaded data
+                    
+                    self.fullView.updateContent(with: photo)
+                    self.fullView.isHidden = false
+                case .failure(let error):
+                    // todo
+                    print(error.localizedDescription)
+                }
+                
+                self.toggleSpinner(isloading: false)
+            }
+        }
+        
+        prepareData(on: index)
+    }
+    
+    // prepare the data on previous and next detialModel beforehand
+    fileprivate func prepareData(on index: Int) {
+        if index - 1 > -1, photoDetailDic[photoModelArray[index - 1].id] == nil {
+            PhotoAPIService.getPhoto(by: photoModelArray[index - 1].id) { [unowned self] result in
+                switch result {
+                case .success(let photo):
+                    print(photo)
+                    self.photoDetailDic[self.photoModelArray[index - 1].id] = photo // save the downloaded data
+                case .failure(let error):
+                    // todo
+                    print(error.localizedDescription)
+                }
+                
+            }
+        }
+        
+        if index + 1 < photoModelArray.count, photoDetailDic[photoModelArray[index + 1].id] == nil {
+            PhotoAPIService.getPhoto(by: photoModelArray[index + 1].id) { [unowned self] result in
+                switch result {
+                case .success(let photo):
+                    self.photoDetailDic[self.photoModelArray[index + 1].id] = photo // save the downloaded data
+                case .failure(let error):
+                    // todo
+                    print(error.localizedDescription)
+                }
+                
+            }
         }
     }
-
 }
 
 extension CollectionViewController: UICollectionViewDelegate, UICollectionViewDataSource {
@@ -163,7 +207,6 @@ extension CollectionViewController: UICollectionViewDelegate, UICollectionViewDa
     func numberOfSections(in collectionView: UICollectionView) -> Int {
         return 1
     }
-    
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return photoModelArray.count
@@ -187,15 +230,35 @@ extension CollectionViewController: UICollectionViewDelegate, UICollectionViewDa
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        let attributes = collectionView.layoutAttributesForItem(at: indexPath)
+//        let attributes = collectionView.layoutAttributesForItem(at: indexPath)
 //        print(attributes?.frame)
         
-        showFullView(with: indexPath.row)
+        currentIndex = indexPath.row
+        showFullView(with: currentIndex)
     }
 }
 
 extension CollectionViewController: FullScreenViewProtocol {
+    func swipeLeft() {
+        // load next
+        if currentIndex + 1 < photoModelArray.count {
+            currentIndex += 1
+            showFullView(with: currentIndex)
+        }
+    }
+    
+    func swipeRight() {
+        // load previous
+        if currentIndex - 1 > -1 {
+            currentIndex -= 1
+            showFullView(with: currentIndex)
+        }
+    }
+    
     func dismiss() {
         fullView.isHidden = true
+        
+        // make current index cell visible
+        collectionView.scrollToItem(at: IndexPath(row: currentIndex, section:0), at: .centeredVertically, animated: true)
     }
 }

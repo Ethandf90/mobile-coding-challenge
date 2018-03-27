@@ -11,6 +11,8 @@ import SnapKit
 
 protocol FullScreenViewProtocol: NSObjectProtocol {
     func dismiss()
+    func swipeLeft()
+    func swipeRight()
 }
 
 class FullScreenView: UIView {
@@ -49,16 +51,22 @@ class FullScreenView: UIView {
         }
         
         let tap = UITapGestureRecognizer(target: self, action: #selector(tapToDismiss))
-//        tap.numberOfTapsRequired = 2
+        tap.numberOfTapsRequired = 2
         imageView.isUserInteractionEnabled = true
         imageView.addGestureRecognizer(tap)
+        
+        let swipeLeft = UISwipeGestureRecognizer(target: self, action: #selector(handleSwipeLeft))
+        swipeLeft.direction = .left
+        imageView.addGestureRecognizer(swipeLeft)
+        
+        let swipeRight = UISwipeGestureRecognizer(target: self, action: #selector(handleSwipeRight))
+        swipeRight.direction = .right
+        imageView.addGestureRecognizer(swipeRight)
     }
     
     // MARK: public func
     
     func updateContent(with model: PhotoDetail) {
-        
-        
         self.imageView.setImageWith(urlStr: model.url, placeholder: DemoAsset.placeholder.image)
         self.viewsLabel.text = String(model.views)
         self.downloadsLabel.text = String(model.downloads)
@@ -69,4 +77,13 @@ class FullScreenView: UIView {
     @objc func tapToDismiss() {
         self.delegate?.dismiss()
     }
+    @objc func handleSwipeLeft() {
+        print("left")
+        self.delegate?.swipeLeft()
+    }
+    @objc func handleSwipeRight() {
+        print("right")
+        self.delegate?.swipeRight()
+    }
+    
 }
