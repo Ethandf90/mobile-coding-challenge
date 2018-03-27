@@ -14,6 +14,9 @@
 		5F0722BF2069CEB300582BC1 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5F0722BD2069CEB300582BC1 /* LaunchScreen.storyboard */; };
 		5F0722CA2069CEB300582BC1 /* mobile_coding_challengeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F0722C92069CEB300582BC1 /* mobile_coding_challengeTests.swift */; };
 		5F0722D52069CEB300582BC1 /* mobile_coding_challengeUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F0722D42069CEB300582BC1 /* mobile_coding_challengeUITests.swift */; };
+		858D6BC6A1858473EF873ED8 /* Pods_mobile_coding_challengeUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D7C1965B3C106E87689211AE /* Pods_mobile_coding_challengeUITests.framework */; };
+		88AD44487759CDCCAD60A6D5 /* Pods_mobile_coding_challenge.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AE520D4700C09F7B529C8BD2 /* Pods_mobile_coding_challenge.framework */; };
+		A3C3213F8167B856B5EC44B3 /* Pods_mobile_coding_challengeTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 14B4AAE6F439E38D91E411B3 /* Pods_mobile_coding_challengeTests.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -34,6 +37,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		0936C06E0D85D278B0C0C3A0 /* Pods-mobile-coding-challengeUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-mobile-coding-challengeUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-mobile-coding-challengeUITests/Pods-mobile-coding-challengeUITests.release.xcconfig"; sourceTree = "<group>"; };
+		14B4AAE6F439E38D91E411B3 /* Pods_mobile_coding_challengeTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_mobile_coding_challengeTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		4B2F8EFC080D236125A35E22 /* Pods-mobile-coding-challenge.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-mobile-coding-challenge.debug.xcconfig"; path = "Pods/Target Support Files/Pods-mobile-coding-challenge/Pods-mobile-coding-challenge.debug.xcconfig"; sourceTree = "<group>"; };
 		5F0722B12069CEB300582BC1 /* mobile-coding-challenge.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "mobile-coding-challenge.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		5F0722B42069CEB300582BC1 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		5F0722B62069CEB300582BC1 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -47,6 +53,12 @@
 		5F0722D02069CEB300582BC1 /* mobile-coding-challengeUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "mobile-coding-challengeUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		5F0722D42069CEB300582BC1 /* mobile_coding_challengeUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = mobile_coding_challengeUITests.swift; sourceTree = "<group>"; };
 		5F0722D62069CEB300582BC1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		605F0893D005125819F3ADAB /* Pods-mobile-coding-challenge.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-mobile-coding-challenge.release.xcconfig"; path = "Pods/Target Support Files/Pods-mobile-coding-challenge/Pods-mobile-coding-challenge.release.xcconfig"; sourceTree = "<group>"; };
+		92F4879D04B5ED432F7D77AD /* Pods-mobile-coding-challengeTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-mobile-coding-challengeTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-mobile-coding-challengeTests/Pods-mobile-coding-challengeTests.release.xcconfig"; sourceTree = "<group>"; };
+		AE520D4700C09F7B529C8BD2 /* Pods_mobile_coding_challenge.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_mobile_coding_challenge.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		CAEA61EDB20348B0B2473B03 /* Pods-mobile-coding-challengeTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-mobile-coding-challengeTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-mobile-coding-challengeTests/Pods-mobile-coding-challengeTests.debug.xcconfig"; sourceTree = "<group>"; };
+		D364A04AA5A4CA69BA51C2AD /* Pods-mobile-coding-challengeUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-mobile-coding-challengeUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-mobile-coding-challengeUITests/Pods-mobile-coding-challengeUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		D7C1965B3C106E87689211AE /* Pods_mobile_coding_challengeUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_mobile_coding_challengeUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -54,6 +66,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				88AD44487759CDCCAD60A6D5 /* Pods_mobile_coding_challenge.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -61,6 +74,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A3C3213F8167B856B5EC44B3 /* Pods_mobile_coding_challengeTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -68,12 +82,26 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				858D6BC6A1858473EF873ED8 /* Pods_mobile_coding_challengeUITests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		2BA4D82F5970220EDFB4500B /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				4B2F8EFC080D236125A35E22 /* Pods-mobile-coding-challenge.debug.xcconfig */,
+				605F0893D005125819F3ADAB /* Pods-mobile-coding-challenge.release.xcconfig */,
+				CAEA61EDB20348B0B2473B03 /* Pods-mobile-coding-challengeTests.debug.xcconfig */,
+				92F4879D04B5ED432F7D77AD /* Pods-mobile-coding-challengeTests.release.xcconfig */,
+				D364A04AA5A4CA69BA51C2AD /* Pods-mobile-coding-challengeUITests.debug.xcconfig */,
+				0936C06E0D85D278B0C0C3A0 /* Pods-mobile-coding-challengeUITests.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 		5F0722A82069CEB300582BC1 = {
 			isa = PBXGroup;
 			children = (
@@ -81,6 +109,8 @@
 				5F0722C82069CEB300582BC1 /* mobile-coding-challengeTests */,
 				5F0722D32069CEB300582BC1 /* mobile-coding-challengeUITests */,
 				5F0722B22069CEB300582BC1 /* Products */,
+				2BA4D82F5970220EDFB4500B /* Pods */,
+				D5B55C2CACA1E6A360442F0E /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -125,6 +155,16 @@
 			path = "mobile-coding-challengeUITests";
 			sourceTree = "<group>";
 		};
+		D5B55C2CACA1E6A360442F0E /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				AE520D4700C09F7B529C8BD2 /* Pods_mobile_coding_challenge.framework */,
+				14B4AAE6F439E38D91E411B3 /* Pods_mobile_coding_challengeTests.framework */,
+				D7C1965B3C106E87689211AE /* Pods_mobile_coding_challengeUITests.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -132,9 +172,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 5F0722D92069CEB300582BC1 /* Build configuration list for PBXNativeTarget "mobile-coding-challenge" */;
 			buildPhases = (
+				B0AF55FA2DD00224AA5AC9A8 /* [CP] Check Pods Manifest.lock */,
 				5F0722AD2069CEB300582BC1 /* Sources */,
 				5F0722AE2069CEB300582BC1 /* Frameworks */,
 				5F0722AF2069CEB300582BC1 /* Resources */,
+				296AC9EEB982E82EF3AEB327 /* [CP] Embed Pods Frameworks */,
+				6B796206992EFA4F850D6568 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -149,9 +192,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 5F0722DC2069CEB300582BC1 /* Build configuration list for PBXNativeTarget "mobile-coding-challengeTests" */;
 			buildPhases = (
+				62FAA0D3B5E75760FB03F770 /* [CP] Check Pods Manifest.lock */,
 				5F0722C12069CEB300582BC1 /* Sources */,
 				5F0722C22069CEB300582BC1 /* Frameworks */,
 				5F0722C32069CEB300582BC1 /* Resources */,
+				1B588CC4A5539B30C308D60F /* [CP] Embed Pods Frameworks */,
+				ADFDAE64822E1211E8BBD6A4 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -167,9 +213,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 5F0722DF2069CEB300582BC1 /* Build configuration list for PBXNativeTarget "mobile-coding-challengeUITests" */;
 			buildPhases = (
+				508C6FC56A75CA76DB76BA5B /* [CP] Check Pods Manifest.lock */,
 				5F0722CC2069CEB300582BC1 /* Sources */,
 				5F0722CD2069CEB300582BC1 /* Frameworks */,
 				5F0722CE2069CEB300582BC1 /* Resources */,
+				89FC83BFAEBE521551C80D9F /* [CP] Embed Pods Frameworks */,
+				5D6B1576EA89A2B06EFC1026 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -253,6 +302,160 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		1B588CC4A5539B30C308D60F /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-mobile-coding-challengeTests/Pods-mobile-coding-challengeTests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		296AC9EEB982E82EF3AEB327 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-mobile-coding-challenge/Pods-mobile-coding-challenge-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
+				"${BUILT_PRODUCTS_DIR}/Kingfisher/Kingfisher.framework",
+				"${BUILT_PRODUCTS_DIR}/SnapKit/SnapKit.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Kingfisher.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SnapKit.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-mobile-coding-challenge/Pods-mobile-coding-challenge-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		508C6FC56A75CA76DB76BA5B /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-mobile-coding-challengeUITests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		5D6B1576EA89A2B06EFC1026 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-mobile-coding-challengeUITests/Pods-mobile-coding-challengeUITests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		62FAA0D3B5E75760FB03F770 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-mobile-coding-challengeTests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		6B796206992EFA4F850D6568 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-mobile-coding-challenge/Pods-mobile-coding-challenge-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		89FC83BFAEBE521551C80D9F /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-mobile-coding-challengeUITests/Pods-mobile-coding-challengeUITests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		ADFDAE64822E1211E8BBD6A4 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-mobile-coding-challengeTests/Pods-mobile-coding-challengeTests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		B0AF55FA2DD00224AA5AC9A8 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-mobile-coding-challenge-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		5F0722AD2069CEB300582BC1 /* Sources */ = {
@@ -424,6 +627,7 @@
 		};
 		5F0722DA2069CEB300582BC1 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 4B2F8EFC080D236125A35E22 /* Pods-mobile-coding-challenge.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Manual;
@@ -440,6 +644,7 @@
 		};
 		5F0722DB2069CEB300582BC1 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 605F0893D005125819F3ADAB /* Pods-mobile-coding-challenge.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Manual;
@@ -456,6 +661,7 @@
 		};
 		5F0722DD2069CEB300582BC1 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = CAEA61EDB20348B0B2473B03 /* Pods-mobile-coding-challengeTests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -472,6 +678,7 @@
 		};
 		5F0722DE2069CEB300582BC1 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 92F4879D04B5ED432F7D77AD /* Pods-mobile-coding-challengeTests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -488,6 +695,7 @@
 		};
 		5F0722E02069CEB300582BC1 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = D364A04AA5A4CA69BA51C2AD /* Pods-mobile-coding-challengeUITests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
@@ -503,6 +711,7 @@
 		};
 		5F0722E12069CEB300582BC1 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 0936C06E0D85D278B0C0C3A0 /* Pods-mobile-coding-challengeUITests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
