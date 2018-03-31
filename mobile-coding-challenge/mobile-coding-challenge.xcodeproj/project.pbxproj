@@ -35,7 +35,7 @@
 		5F072317206BF1C500582BC1 /* DimmingPresentationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F072316206BF1C500582BC1 /* DimmingPresentationController.swift */; };
 		5F072319206BF23A00582BC1 /* PresentAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F072318206BF23A00582BC1 /* PresentAnimator.swift */; };
 		5F07231B206BF38000582BC1 /* ViewControllerProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F07231A206BF38000582BC1 /* ViewControllerProtocol.swift */; };
-		5F69944F206F5BB000B8980F /* SwiftPhotoGallery.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F69944D206F5BB000B8980F /* SwiftPhotoGallery.swift */; };
+		5F69944F206F5BB000B8980F /* DetailCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F69944D206F5BB000B8980F /* DetailCollectionViewController.swift */; };
 		5F699454206F5BF700B8980F /* DetailCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F699452206F5BF700B8980F /* DetailCollectionViewCell.swift */; };
 		5F699455206F5BF700B8980F /* DetailCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5F699453206F5BF700B8980F /* DetailCollectionViewCell.xib */; };
 		858D6BC6A1858473EF873ED8 /* Pods_mobile_coding_challengeUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D7C1965B3C106E87689211AE /* Pods_mobile_coding_challengeUITests.framework */; };
@@ -98,7 +98,7 @@
 		5F072316206BF1C500582BC1 /* DimmingPresentationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DimmingPresentationController.swift; sourceTree = "<group>"; };
 		5F072318206BF23A00582BC1 /* PresentAnimator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PresentAnimator.swift; sourceTree = "<group>"; };
 		5F07231A206BF38000582BC1 /* ViewControllerProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewControllerProtocol.swift; sourceTree = "<group>"; };
-		5F69944D206F5BB000B8980F /* SwiftPhotoGallery.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwiftPhotoGallery.swift; sourceTree = "<group>"; };
+		5F69944D206F5BB000B8980F /* DetailCollectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailCollectionViewController.swift; sourceTree = "<group>"; };
 		5F699452206F5BF700B8980F /* DetailCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailCollectionViewCell.swift; sourceTree = "<group>"; };
 		5F699453206F5BF700B8980F /* DetailCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DetailCollectionViewCell.xib; sourceTree = "<group>"; };
 		605F0893D005125819F3ADAB /* Pods-mobile-coding-challenge.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-mobile-coding-challenge.release.xcconfig"; path = "Pods/Target Support Files/Pods-mobile-coding-challenge/Pods-mobile-coding-challenge.release.xcconfig"; sourceTree = "<group>"; };
@@ -234,9 +234,9 @@
 		5F0722EC2069F1D900582BC1 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				5F69944D206F5BB000B8980F /* SwiftPhotoGallery.swift */,
 				5F07231A206BF38000582BC1 /* ViewControllerProtocol.swift */,
 				5F0722FB206A272C00582BC1 /* CollectionViewController.swift */,
+				5F69944D206F5BB000B8980F /* DetailCollectionViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -619,7 +619,7 @@
 				5F0722F32069FA6C00582BC1 /* User.swift in Sources */,
 				5F0722EF2069F3B800582BC1 /* Constants.swift in Sources */,
 				5F072317206BF1C500582BC1 /* DimmingPresentationController.swift in Sources */,
-				5F69944F206F5BB000B8980F /* SwiftPhotoGallery.swift in Sources */,
+				5F69944F206F5BB000B8980F /* DetailCollectionViewController.swift in Sources */,
 				5F072310206A913A00582BC1 /* UIImage+Extension.swift in Sources */,
 				5F0722E42069E26900582BC1 /* APIRouterProtocol.swift in Sources */,
 				5F072312206A994500582BC1 /* UIView+Extension.swift in Sources */,
