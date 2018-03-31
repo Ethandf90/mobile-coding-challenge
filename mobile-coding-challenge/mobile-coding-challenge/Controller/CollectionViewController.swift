@@ -16,21 +16,24 @@ struct CollectionViewControllerConst {
 
 class CollectionViewController: UIViewController {
 
-    var photoModelArray = [Photo]() {
+    // MARK: property
+    
+    fileprivate var photoModelArray = [Photo]() {
         didSet {
             collectionView.reloadData()
         }
     }
-    var photoDetailDic = [String: PhotoDetail]() // [photoId: PhotoDetailModel] to hold downloaded PhotoDetailModel
+    fileprivate var photoDetailDic = [String: PhotoDetail]() // [photoId: PhotoDetailModel] to hold downloaded PhotoDetailModel
     
-    var currentPage = 1  // current pagination, for
-    var currentIndex = -1  // current selected index
+    fileprivate var currentPage = 1  // current pagination, for data downloading
+    fileprivate var currentIndex = -1  // current selected index
     
-    var isLoading = false {
+    fileprivate var isLoading = false {
         didSet {
             toggleSpinner(isloading: isLoading)
         }
     }
+
     
     // MARK: subviews
     
@@ -62,63 +65,18 @@ class CollectionViewController: UIViewController {
         return spinner
     }()
     
-    lazy var fullView: FullScreenView = { [unowned self] in
-        let view = FullScreenView(frame: CGRect.zero)
-        view.delegate = self
-        view.isHidden = true
-        
-        return view
-    }()
-    
-    
     // MARK: life cycle
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        setupUI()
-        loadMoreData()
-    }
-    
-    fileprivate func loadMoreData() {
-        isLoading = true
-        PhotoAPIService.getPhotos(from: currentPage){ [unowned self] result in
-            switch result {
-            case .success(let photos):
-                self.photoModelArray += photos  // append more on the existing list
-            case .failure(let error):
-                print(error)
-            }
-            self.currentPage += 1
-            self.isLoading = false
-        }
-    }
-    
-    fileprivate func setupUI() {
         self.title = "Demo"
         
-        self.view.addSubview(fullView)
-        self.view.addSubview(spinner)
-        self.view.addSubview(collectionView)
-        self.view.bringSubview(toFront: fullView)
-        
-        spinner.snp.makeConstraints { (make) in
-            make.height.equalTo(0)
-            make.width.equalTo(CollectionViewControllerConst.spinnerSize)
-            make.bottom.equalToSuperview()
-            make.centerX.equalToSuperview()
-        }
-        collectionView.snp.makeConstraints { (make) in
-            make.top.left.right.equalToSuperview()
-            make.bottom.equalTo(spinner.snp.top)
-        }
-        fullView.snp.makeConstraints { (make) in
-            make.top.left.right.bottom.equalToSuperview()
-        }
-       
+        addSubviews()
+        addConstraints()
+        loadData()
     }
     
-    // MARK: event
+    // MARK: private function
     
     fileprivate func toggleSpinner(isloading: Bool) {
         if isloading {
@@ -138,36 +96,37 @@ class CollectionViewController: UIViewController {
         }
     }
 
-    fileprivate func showFullView(with index: Int) {
-        
-        let model = photoModelArray[index]
-        if let photo = photoDetailDic[model.id] {
-            // if data already downloaded, just use it
-            self.fullView.updateContent(with: photo)
-            self.fullView.isHidden = false
-        } else {
-            
-            // here to reuse the spinner logic, just to indicate
-            toggleSpinner(isloading: true)
-            PhotoAPIService.getPhoto(by: model.id) { [unowned self] result in
-                switch result {
-                case .success(let photo):
-                    
-                    self.photoDetailDic[model.id] = photo // save the downloaded data
-                    
-                    self.fullView.updateContent(with: photo)
-                    self.fullView.isHidden = false
-                case .failure(let error):
-                    // todo
-                    print(error.localizedDescription)
-                }
-                
-                self.toggleSpinner(isloading: false)
-            }
-        }
-        
-        prepareData(on: index)
-    }
+//    fileprivate func showFullView(with index: Int) {
+//
+//        let model = photoModelArray[index]
+//        if let photo = photoDetailDic[model.id] {
+//            // if data already downloaded, just use it
+//            present(self.fullViewController, animated: true, completion: nil)
+//            self.fullViewController.updateContent(with: photo)
+//
+//        } else {
+//
+//            // here to reuse the spinner logic, just to indicate
+//            toggleSpinner(isloading: true)
+//            PhotoAPIService.getPhoto(by: model.id) { [unowned self] result in
+//                switch result {
+//                case .success(let photo):
+//
+//                    self.photoDetailDic[model.id] = photo // save the downloaded data
+//                    self.present(self.fullViewController, animated: true, completion: nil)
+//                    self.fullViewController.updateContent(with: photo)
+//
+//                case .failure(let error):
+//                    // todo
+//                    print(error.localizedDescription)
+//                }
+//
+//                self.toggleSpinner(isloading: false)
+//            }
+//        }
+//
+//        prepareData(on: index)
+//    }
     
     // prepare the data on previous and next detialModel beforehand
     fileprivate func prepareData(on index: Int) {
@@ -181,7 +140,6 @@ class CollectionViewController: UIViewController {
                     // todo
                     print(error.localizedDescription)
                 }
-                
             }
         }
         
@@ -194,8 +152,42 @@ class CollectionViewController: UIViewController {
                     // todo
                     print(error.localizedDescription)
                 }
-                
             }
+        }
+    }
+}
+
+// for UI
+extension CollectionViewController: ViewControllerProtocol {
+    internal func addSubviews() {
+        self.view.addSubview(spinner)
+        self.view.addSubview(collectionView)
+    }
+    
+    internal func addConstraints() {
+        spinner.snp.makeConstraints { (make) in
+            make.height.equalTo(0)
+            make.width.equalTo(CollectionViewControllerConst.spinnerSize)
+            make.bottom.equalToSuperview()
+            make.centerX.equalToSuperview()
+        }
+        collectionView.snp.makeConstraints { (make) in
+            make.top.left.right.equalToSuperview()
+            make.bottom.equalTo(spinner.snp.top)
+        }
+    }
+    
+    internal func loadData() {
+        isLoading = true
+        PhotoAPIService.getPhotos(from: currentPage){ [unowned self] result in
+            switch result {
+            case .success(let photos):
+                self.photoModelArray += photos  // append more on the existing list
+            case .failure(let error):
+                print(error)
+            }
+            self.currentPage += 1
+            self.isLoading = false
         }
     }
 }
@@ -225,7 +217,7 @@ extension CollectionViewController: UICollectionViewDelegate, UICollectionViewDa
     
     func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
         if indexPath.row == photoModelArray.count - 1 {
-            loadMoreData()
+            loadData()
         }
     }
     
@@ -234,31 +226,54 @@ extension CollectionViewController: UICollectionViewDelegate, UICollectionViewDa
 //        print(attributes?.frame)
         
         currentIndex = indexPath.row
-        showFullView(with: currentIndex)
+//        showFullView(with: currentIndex)
+        
+        let gallery = DetailCollectionViewController(delegate: self, dataSource: self)
+        gallery.backgroundColor = UIColor.black
+        gallery.modalPresentationStyle = .custom
+        gallery.transitioningDelegate = self
+        present(gallery, animated: true, completion: { () -> Void in
+            gallery.currentPage = self.currentIndex
+        })
     }
 }
 
-extension CollectionViewController: FullScreenViewProtocol {
-    func swipeLeft() {
-        // load next
-        if currentIndex + 1 < photoModelArray.count {
-            currentIndex += 1
-            showFullView(with: currentIndex)
-        }
+// MARK: DetailCollectionViewControllerDataSource Methods
+extension CollectionViewController: DetailCollectionViewControllerDataSource {
+    
+    func numberOfImagesInGallery(gallery: DetailCollectionViewController) -> Int {
+        return photoModelArray.count
     }
     
-    func swipeRight() {
-        // load previous
-        if currentIndex - 1 > -1 {
-            currentIndex -= 1
-            showFullView(with: currentIndex)
-        }
-    }
-    
-    func dismiss() {
-        fullView.isHidden = true
-        
-        // make current index cell visible
-        collectionView.scrollToItem(at: IndexPath(row: currentIndex, section:0), at: .centeredVertically, animated: true)
+    func imageInGallery(gallery: DetailCollectionViewController, forIndex: Int) -> UIImage? {
+        return nil
     }
 }
+
+
+// MARK: DetailCollectionViewControllerDelegate Methods
+extension CollectionViewController: DetailCollectionViewControllerDelegate {
+    
+    func galleryDidTapToClose(gallery: DetailCollectionViewController) {
+        self.currentIndex = gallery.currentPage
+        dismiss(animated: true, completion: nil)
+    }
+}
+
+extension CollectionViewController: UIViewControllerTransitioningDelegate {
+
+    func presentationController(forPresented presented: UIViewController, presenting: UIViewController?, source: UIViewController) -> UIPresentationController? {
+        return DimmingPresentationController(presentedViewController: presented, presenting: presenting)
+    }
+    
+    func animationController(forPresented presented: UIViewController, presenting: UIViewController, source: UIViewController) -> UIViewControllerAnimatedTransitioning? {
+        guard let selectedCellFrame = self.collectionView.cellForItem(at: IndexPath(item: currentIndex, section: 0))?.frame else { return nil }
+        return PresentAnimator(pageIndex: currentIndex, originFrame: selectedCellFrame)
+    }
+    
+    func animationController(forDismissed dismissed: UIViewController) -> UIViewControllerAnimatedTransitioning? {
+        guard let returnCellFrame = self.collectionView.cellForItem(at: IndexPath(item: currentIndex, section: 0))?.frame else { return nil }
+        return DismissAnimator(pageIndex: currentIndex, finalFrame: returnCellFrame)
+    }
+}
+

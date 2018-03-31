@@ -35,7 +35,6 @@ class CollectionViewCell: UICollectionViewCell {
         return label
     }()
     
-    
     override init(frame: CGRect) {
         super.init(frame: frame)
     }
@@ -49,7 +48,6 @@ class CollectionViewCell: UICollectionViewCell {
         contentView.subviews.forEach { $0.removeFromSuperview() }
         
         contentView.addSubview(imageView)
-//        contentView.bringSubview(toFront: label)
         imageView.snp.makeConstraints { (make) in
             make.top.left.right.bottom.equalToSuperview()
         }

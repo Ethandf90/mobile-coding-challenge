@@ -33,8 +33,10 @@ struct PhotoDetail: Decodable {
     }
 
     enum UrlsKeys: String, CodingKey {
-        case full // take out 'full' url from urls, as url property to use
+//        case full // take out 'full' url from urls, as url property to use
+        case regular
     }
+    
 }
 
 extension PhotoDetail {
@@ -51,6 +53,6 @@ extension PhotoDetail {
 
         // to handle the nested value
         let urls = try values.nestedContainer(keyedBy: UrlsKeys.self, forKey: .urls)
-        url = try urls.decode(String.self, forKey: .full)
+        url = try urls.decode(String.self, forKey: .regular)
     }
 }
