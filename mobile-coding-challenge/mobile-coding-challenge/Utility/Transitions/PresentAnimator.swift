@@ -36,11 +36,11 @@ class PresentAnimator: NSObject, UIViewControllerAnimatedTransitioning {
                 return
         }
         var finalFrame = toView.frame // assign whole screen frame
-//        if UIDevice.current.orientation == .portrait {
-//            finalFrame.size.height = finalFrame.height - 100 // 100 is constraint constant
-//        } else {
-//            finalFrame.size.width = finalFrame.width - 200 // 200 is constraint constant
-//        }
+        if UIDevice.current.orientation == .portrait {
+            finalFrame.size.height = finalFrame.height - 100 // 100 is constraint constant
+        } else {
+            finalFrame.size.width = finalFrame.width - 200 // 200 is constraint constant
+        }
         
         let viewToAnimate = UIImageView(frame: originFrame)
         viewToAnimate.image = fromView.imageView.image
@@ -69,7 +69,5 @@ class PresentAnimator: NSObject, UIViewControllerAnimatedTransitioning {
             viewToAnimate.removeFromSuperview()
             transitionContext.completeTransition(true)
         })
-
     }
 }
-

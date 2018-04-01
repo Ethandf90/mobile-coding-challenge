@@ -35,23 +35,27 @@ class CollectionViewCell: UICollectionViewCell {
         return label
     }()
     
+    var model: Photo? = nil {
+        didSet {
+            if let model = model {
+                // to address resue issue
+                contentView.subviews.forEach { $0.removeFromSuperview() }
+                
+                contentView.addSubview(imageView)
+                imageView.snp.makeConstraints { (make) in
+                    make.top.left.right.bottom.equalToSuperview()
+                }
+                
+                imageView.setImageWith(urlStr: model.url)
+            }
+        }
+    }
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
     }
     
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
-    }
-    
-    func updateCellWith(model: Photo) {
-        // to address resue issue
-        contentView.subviews.forEach { $0.removeFromSuperview() }
-        
-        contentView.addSubview(imageView)
-        imageView.snp.makeConstraints { (make) in
-            make.top.left.right.bottom.equalToSuperview()
-        }
-        
-        imageView.setImageWith(urlStr: model.url)
     }
 }

@@ -21,6 +21,9 @@ class CollectionViewController: UIViewController {
     fileprivate var photoModelArray = [Photo]() {
         didSet {
             collectionView.reloadData()
+            if let gallery = self.gallery {
+                gallery.imageCollectionView.reloadData()
+            }
         }
     }
     fileprivate var photoDetailDic = [String: PhotoDetail]() // [photoId: PhotoDetailModel] to hold downloaded PhotoDetailModel
@@ -33,7 +36,6 @@ class CollectionViewController: UIViewController {
             toggleSpinner(isloading: isLoading)
         }
     }
-
     
     // MARK: subviews
     
@@ -65,6 +67,8 @@ class CollectionViewController: UIViewController {
         return spinner
     }()
     
+    var gallery: DetailCollectionViewController?
+    
     // MARK: life cycle
     
     override func viewDidLoad() {
@@ -93,66 +97,6 @@ class CollectionViewController: UIViewController {
                     make.height.equalTo(0)
                 })
 //            })
-        }
-    }
-
-//    fileprivate func showFullView(with index: Int) {
-//
-//        let model = photoModelArray[index]
-//        if let photo = photoDetailDic[model.id] {
-//            // if data already downloaded, just use it
-//            present(self.fullViewController, animated: true, completion: nil)
-//            self.fullViewController.updateContent(with: photo)
-//
-//        } else {
-//
-//            // here to reuse the spinner logic, just to indicate
-//            toggleSpinner(isloading: true)
-//            PhotoAPIService.getPhoto(by: model.id) { [unowned self] result in
-//                switch result {
-//                case .success(let photo):
-//
-//                    self.photoDetailDic[model.id] = photo // save the downloaded data
-//                    self.present(self.fullViewController, animated: true, completion: nil)
-//                    self.fullViewController.updateContent(with: photo)
-//
-//                case .failure(let error):
-//                    // todo
-//                    print(error.localizedDescription)
-//                }
-//
-//                self.toggleSpinner(isloading: false)
-//            }
-//        }
-//
-//        prepareData(on: index)
-//    }
-    
-    // prepare the data on previous and next detialModel beforehand
-    fileprivate func prepareData(on index: Int) {
-        if index - 1 > -1, photoDetailDic[photoModelArray[index - 1].id] == nil {
-            PhotoAPIService.getPhoto(by: photoModelArray[index - 1].id) { [unowned self] result in
-                switch result {
-                case .success(let photo):
-                    print(photo)
-                    self.photoDetailDic[self.photoModelArray[index - 1].id] = photo // save the downloaded data
-                case .failure(let error):
-                    // todo
-                    print(error.localizedDescription)
-                }
-            }
-        }
-        
-        if index + 1 < photoModelArray.count, photoDetailDic[photoModelArray[index + 1].id] == nil {
-            PhotoAPIService.getPhoto(by: photoModelArray[index + 1].id) { [unowned self] result in
-                switch result {
-                case .success(let photo):
-                    self.photoDetailDic[self.photoModelArray[index + 1].id] = photo // save the downloaded data
-                case .failure(let error):
-                    // todo
-                    print(error.localizedDescription)
-                }
-            }
         }
     }
 }
@@ -207,7 +151,7 @@ extension CollectionViewController: UICollectionViewDelegate, UICollectionViewDa
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: CollectionViewControllerConst.cellIdentifier, for: indexPath) as! CollectionViewCell
         
-        cell.updateCellWith(model: photoModelArray[indexPath.row])
+        cell.model = photoModelArray[indexPath.row]
         cell.backgroundColor = .cellBackgroundColor
         
         return cell
@@ -222,41 +166,43 @@ extension CollectionViewController: UICollectionViewDelegate, UICollectionViewDa
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-//        let attributes = collectionView.layoutAttributesForItem(at: indexPath)
-//        print(attributes?.frame)
         
         currentIndex = indexPath.row
-//        showFullView(with: currentIndex)
         
-        let gallery = DetailCollectionViewController(delegate: self, dataSource: self)
-        gallery.backgroundColor = UIColor.black
-        gallery.modalPresentationStyle = .custom
-        gallery.transitioningDelegate = self
-        present(gallery, animated: true, completion: { () -> Void in
-            gallery.currentPage = self.currentIndex
-        })
+        gallery = DetailCollectionViewController(delegate: self, dataSource: self)
+        gallery?.modalPresentationStyle = .custom
+        gallery?.transitioningDelegate = self
+        if let gallery = self.gallery {
+            present(gallery, animated: true, completion: { [unowned self] in
+                gallery.currentPage = self.currentIndex
+            })
+        }
+        
     }
 }
 
 // MARK: DetailCollectionViewControllerDataSource Methods
 extension CollectionViewController: DetailCollectionViewControllerDataSource {
-    
-    func numberOfImagesInGallery(gallery: DetailCollectionViewController) -> Int {
+    func numberOfCellsInGallery(gallery: DetailCollectionViewController) -> Int {
         return photoModelArray.count
     }
     
-    func imageInGallery(gallery: DetailCollectionViewController, forIndex: Int) -> UIImage? {
-        return nil
+    func modelInGallery(gallery: DetailCollectionViewController, forIndex: Int) -> Any {
+        return photoModelArray[forIndex]
     }
 }
 
-
 // MARK: DetailCollectionViewControllerDelegate Methods
 extension CollectionViewController: DetailCollectionViewControllerDelegate {
-    
     func galleryDidTapToClose(gallery: DetailCollectionViewController) {
         self.currentIndex = gallery.currentPage
         dismiss(animated: true, completion: nil)
+    }
+    
+    func galleryDidMoveTo(index: Int) {
+        // make current index cell visible in the middle
+        self.currentIndex = index
+        self.collectionView.scrollToItem(at: IndexPath(row: index, section:0), at: .centeredVertically, animated: false)
     }
 }
 
@@ -267,12 +213,16 @@ extension CollectionViewController: UIViewControllerTransitioningDelegate {
     }
     
     func animationController(forPresented presented: UIViewController, presenting: UIViewController, source: UIViewController) -> UIViewControllerAnimatedTransitioning? {
-        guard let selectedCellFrame = self.collectionView.cellForItem(at: IndexPath(item: currentIndex, section: 0))?.frame else { return nil }
+        // need to get the frame against window, not the collectionView
+        guard let selectedCellFrame = self.collectionView.cellForItem(at: IndexPath(item: currentIndex, section: 0))?.globalFrame else { return nil }
+        
+        print(selectedCellFrame)
         return PresentAnimator(pageIndex: currentIndex, originFrame: selectedCellFrame)
     }
     
     func animationController(forDismissed dismissed: UIViewController) -> UIViewControllerAnimatedTransitioning? {
-        guard let returnCellFrame = self.collectionView.cellForItem(at: IndexPath(item: currentIndex, section: 0))?.frame else { return nil }
+        // need to get the frame against window, not the collectionView
+        guard let returnCellFrame = self.collectionView.cellForItem(at: IndexPath(item: currentIndex, section: 0))?.globalFrame else { return nil }
         return DismissAnimator(pageIndex: currentIndex, finalFrame: returnCellFrame)
     }
 }
