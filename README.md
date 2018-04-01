@@ -9,6 +9,7 @@
 - UI of Controller and CollectionViewCell is made by code, with snapKit
 - UI of DetailCollectionViewCell is made with interface builder with the use of size class (different layout on horizontal and vertical)
 - on dismiss gallery (no matter how many images browsed), the current image's thumbnail will always be visible, in the middle of main page
+- able to be presented in vertical mode while dismissed in horizontal mode 
 - transition animation on presenting and dismissing. from and to thumbnail's frame, even if presented image differs from dismissed image.
 
 -----------------------------------------------------------------------------
