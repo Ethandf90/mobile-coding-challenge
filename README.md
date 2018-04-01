@@ -1,21 +1,17 @@
 # Intro
 
-- all goals accomplished
-- MVC
 - unsplash API with access key
 - Swift 4 Codable and Alamofire for data fetching  (without SwiftyJson)
 - API Router structure
-- generate UI by code (CollectionViewController); and by interface builder with the use of size class (FullScreenView)
-- logic to pre-download detail model data on (index-1) and (index+1)
-- 
+- on main page, data fetch from '/photos?page=1', to Photo model array
+- on scrolling to bottom, data fetch from '/photos?page=2'...., and reload collectionView. during data fetching, spinner shows on bottom.
+- on click image thumbnail, it opens DetailCollectionViewController. only on willDisplayCell, will data fetching from '/photos/:id' happen, into PhotoDetail model, and update that detail cell with views and downloads (data from PhotoDetail, only to demonstrate more info)
+- UI of Controller and CollectionViewCell is made by code, with snapKit
+- UI of DetailCollectionViewCell is made with interface builder with the use of size class (different layout on horizontal and vertical)
+- on dismiss gallery (no matter how many images browsed), the current image's thumbnail will always be visible, in the middle of main page
+- transition animation on presenting and dismissing. from and to thumbnail's frame, even if presented image differs from dismissed image.
 
-# todo: 
-
-- make full screen detail page a scrollView
-- bonus point - expanding/ shrinking animation; and testing part
-- MVVM
-
-
+-----------------------------------------------------------------------------
 
 # Mobile Developer Coding Challenge
 
